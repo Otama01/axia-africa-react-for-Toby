@@ -1,10 +1,10 @@
 import "./App.css";
 // import Card from "./components/Card";
-import State from "./components/State";
+import State2 from "./components/State2";
 
 function App() {
   return (
-    <State />
+    <State2 />
     // <div>
     //   <Card
     //     content="This is axia africa"
