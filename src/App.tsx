@@ -1,10 +1,14 @@
 import "./App.css";
+import { Component1 } from "./components/CustomHook";
+// import Effect from "./components/Effect";
 // import Card from "./components/Card";
-import State2 from "./components/State2";
+// import State2 from "./components/State2";
 
 function App() {
   return (
-    <State2 />
+    // <State2 />
+    // <Effect />
+    <Component1 />
     // <div>
     //   <Card
     //     content="This is axia africa"

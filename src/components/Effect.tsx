@@ -1,29 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const State2 = () => {
-  // Create a state called counter and update the value pending the button clicked...
-  // (when add is clicked add 1, when subtract is clicked, subtract 1)
-
-  // Additional Point => Ensure that your counter does not go below 0
-
-  // use one onclick for both add and subtract----
-
+const Effect = () => {
   const [counter, setCounter] = useState(0);
+  const [demonstration, setDemonstration] = useState("");
+  useEffect(
+    () => {
+      // code that runs at least once GUARANTEED
+      console.log(
+        "THIS IS MY FIRST USEEFFECT IN ACTION with a count of: ",
+        counter
+      );
 
-  const handleAdd = () => {
-    // setCounter(counter + 1);
-    setCounter((prev) => prev + 1);
-  };
-  const handleSub = () => {
-    // setCounter(counter - 1);
-    // METHOD 1
-    // if (counter <= 0) return;
-    // setCounter((prev) => prev - 1);
-    // METHOD 2
-    setCounter((prev) => (prev > 0 ? prev - 1 : 0));
-  };
+      // CLEANUP FUNCTION
+      return () => {
+        console.log("clean up function in action!!!");
+      };
+    },
+    [counter, demonstration] // DEPENDENCY ARRAY
+  );
 
   const handleAddAndSubtract = (title: "add" | "sub") => {
+    // setDemonstration(title);
     if (title === "add") {
       setCounter((prev) => prev + 1);
     } else {
@@ -34,6 +31,7 @@ const State2 = () => {
   return (
     <div style={{ display: "flex", gap: 1, flexDirection: "column" }}>
       <p>Count: {counter}</p>
+      <p>Demonstration: {demonstration}</p>
       <div
         style={{
           display: "flex",
@@ -59,7 +57,7 @@ const State2 = () => {
   );
 };
 
-export default State2;
+export default Effect;
 
 const style = {
   backgroundColor: "black",
