@@ -1,14 +1,16 @@
 import "./App.css";
+import { WeatherComponent } from "./components/context/WeatherComponent";
 import { Component1 } from "./components/CustomHook";
+// import State from "./components/State";
 // import Effect from "./components/Effect";
 // import Card from "./components/Card";
 // import State2 from "./components/State2";
 
 function App() {
   return (
-    // <State2 />
+    <WeatherComponent />
     // <Effect />
-    <Component1 />
+    // <Component1 />
     // <div>
     //   <Card
     //     content="This is axia africa"
