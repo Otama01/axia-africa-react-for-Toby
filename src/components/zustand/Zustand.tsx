@@ -6,10 +6,16 @@ const Zustand = ({}: Props) => {
   const count2 = useCounterStore((state) => state.count2);
   const incrementCount1 = useCounterStore((state) => state.incrementCount1);
   const incrementCount2 = useCounterStore((state) => state.incrementCount2);
+  const decrementCount1 = useCounterStore((state) => state.decrementCount1);
+  const decrementCount2 = useCounterStore((state) => state.decrementCount2);
   return (
     <div>
-      <button onClick={incrementCount1}>Increment the count</button>
-      <button onClick={incrementCount2}>Increment count2</button>
+      <div style={{ display: "flex", gap: 10 }}>
+        <button onClick={incrementCount1}>Increment the count</button>
+        <button onClick={incrementCount2}>Increment count2</button>
+        <button onClick={decrementCount1}>Decrement the count</button>
+        <button onClick={decrementCount2}>Decrement count2</button>
+      </div>
       <p>Count: {count1}</p>
       <p>count2: {count2}</p>
     </div>
