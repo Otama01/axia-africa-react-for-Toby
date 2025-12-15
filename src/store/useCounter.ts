@@ -9,9 +9,10 @@ type CounterStoreType = {
   decrementCount2: () => void;
 };
 
+const initialState = { count1: 0, count2: 10 };
+
 export const useCounterStore = create<CounterStoreType>((set, get) => ({
-  count1: 0,
-  count2: 10,
+  ...initialState,
   incrementCount1: () => {
     set((state) => ({ count1: state.count1 + 1 }));
   },

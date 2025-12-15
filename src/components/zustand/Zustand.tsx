@@ -1,4 +1,5 @@
 import { useCounterStore } from "../../store/useCounter";
+import { useWeatherStore } from "../../store/useWeatherStore";
 
 type Props = {};
 const Zustand = ({}: Props) => {
@@ -8,14 +9,22 @@ const Zustand = ({}: Props) => {
   const incrementCount2 = useCounterStore((state) => state.incrementCount2);
   const decrementCount1 = useCounterStore((state) => state.decrementCount1);
   const decrementCount2 = useCounterStore((state) => state.decrementCount2);
+  const fetchWeatherDetails = useWeatherStore(
+    (state) => state.fetchWeatherDetails
+  );
+  const weatherDetails = useWeatherStore((state) => state.weatherDetails);
+  //   console.log(weatherDetails, "weather details fetched");
   return (
     <div>
       <div style={{ display: "flex", gap: 10 }}>
+        <button onClick={fetchWeatherDetails}>Fetch weather details </button>
         <button onClick={incrementCount1}>Increment the count</button>
         <button onClick={incrementCount2}>Increment count2</button>
         <button onClick={decrementCount1}>Decrement the count</button>
         <button onClick={decrementCount2}>Decrement count2</button>
       </div>
+      {weatherDetails?.current.temp_c}
+
       <p>Count: {count1}</p>
       <p>count2: {count2}</p>
     </div>
